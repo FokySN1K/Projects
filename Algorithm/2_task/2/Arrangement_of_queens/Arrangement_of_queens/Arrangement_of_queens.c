@@ -3,6 +3,8 @@
 #include <stdlib.h>
 #include < assert.h >
 
+//int AMOUNT_SOLUTION = 0;
+
 void print_massiv_N(int* arr, int N);
 int** create_massiv_N_N(int N); // создание квадратного массива размера N
 void delete_massiv_N_N(int** massiv, int N);//удаление квадратного массива
@@ -31,7 +33,7 @@ void proverka(const int** massiv, int N); // проверяет все ли 2 н
 
 int main()
 {
-    int size_massiv = 8;
+    int size_massiv = 5;
     int** massiv = NULL;
     int* line_information = NULL;
     /*
@@ -44,6 +46,7 @@ int main()
     line_information = (int*)calloc(size_massiv, sizeof(int));
 
     solution(massiv, line_information, size_massiv);
+    //printf("%i", AMOUNT_SOLUTION);
 
     delete_massiv_N_N(massiv, size_massiv);
     free(line_information);
@@ -158,6 +161,7 @@ void proverka(int** massiv, int N) {
 void solution(int** massiv, int* line_information, int N) {
     if (!empty_massiv(line_information, N)) {
         print_massiv_N_N(massiv, N);
+        //AMOUNT_SOLUTION++;
         //proverka(massiv, N);
     }
     else {

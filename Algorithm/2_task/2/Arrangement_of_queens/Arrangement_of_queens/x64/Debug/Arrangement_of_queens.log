@@ -1,5 +1,5 @@
 ﻿  Arrangement_of_queens.c
-C:\Yaroslav\Projects\Algorithm\2_task\2\Arrangement_of_queens\Arrangement_of_queens\Arrangement_of_queens.c(115,49): warning C4029: объявленный список формальных параметров отличается от объявления
-C:\Yaroslav\Projects\Algorithm\2_task\2\Arrangement_of_queens\Arrangement_of_queens\Arrangement_of_queens.c(145,21): warning C4028: формальный параметр 1 отличается от объявления
-C:\Yaroslav\Projects\Algorithm\2_task\2\Arrangement_of_queens\Arrangement_of_queens\Arrangement_of_queens.c(114): warning C4715: first_empty_line: значение возвращается не при всех путях выполнения
+C:\Yaroslav\Projects\Algorithm\2_task\2\Arrangement_of_queens\Arrangement_of_queens\Arrangement_of_queens.c(118,49): warning C4029: объявленный список формальных параметров отличается от объявления
+C:\Yaroslav\Projects\Algorithm\2_task\2\Arrangement_of_queens\Arrangement_of_queens\Arrangement_of_queens.c(148,21): warning C4028: формальный параметр 1 отличается от объявления
+C:\Yaroslav\Projects\Algorithm\2_task\2\Arrangement_of_queens\Arrangement_of_queens\Arrangement_of_queens.c(117): warning C4715: first_empty_line: значение возвращается не при всех путях выполнения
   Arrangement_of_queens.vcxproj -> C:\Yaroslav\Projects\Algorithm\2_task\2\Arrangement_of_queens\x64\Debug\Arrangement_of_queens.exe
