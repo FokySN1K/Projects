@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <math.h>
+#include <assert.h>
 #define BIG long long unsigned 
 #define MOD 524288 //2**19 // модуль от числа
 #define POWER 13 // степень числа
@@ -13,16 +13,25 @@
 
 BIG get_hash(char* string); // хеш от подстроки
 void search_pattern_in_text(char* FILE_WAY, char* STRING); 
-
+void get_string(char* string, BIG len) {
+	int c;
+	for (BIG i = 0; i < len; i++) {
+		if ((c = getchar()) != EOF) {
+			string[i] = c;
+		}
+		else {
+			assert(1);
+		}
+	}
+}
 
 int main() {
+
 	char* FILE_WAY = "C:/Yaroslav/Projects/Algorithm/2_task/3/EXAMPLE.txt";
-	char* STRING = "Now we study at the same university And thou";//подстрока
+	char* STRING = "Let";//подстрока
 
 
 	search_pattern_in_text(FILE_WAY, STRING);
-	
-
 }
 
 BIG get_hash(char* string) {
@@ -39,8 +48,10 @@ void search_pattern_in_text(char* FILE_WAY, char* STRING) {
 	int c;
 	BIG len_STRING = strlen(STRING);
 	BIG HASH_STRING = get_hash(STRING);
-	char* additional_string = (char*)calloc(len_STRING + 1, sizeof(char));
-	fgets(additional_string, len_STRING + 1, stdin);
+
+	char* additional_string = (char*)calloc(len_STRING + 1, sizeof(char));//заполняет всё '\0'
+	get_string(additional_string, len_STRING);
+
 	BIG additional_hash = get_hash(additional_string);
 
 	BIG MAX_POWER = 1;
@@ -64,12 +75,10 @@ void search_pattern_in_text(char* FILE_WAY, char* STRING) {
 		for (BIG j = 0; j < len_STRING - 1; j++) {
 			additional_string[j] = additional_string[j + 1];
 		}
-		////////////
-		////////////  !!!!!!!!!!!!! ГДЕ-ТО ЗДЕСЬ ОШИБКА !!!!!!!!!!
-		////////////
 		additional_string[len_STRING - 1] = c;
 		//printf("%c", c);
-		printf("%s!\n", additional_string);
+		//printf("%s\n", additional_string);
+		//printf("............\n");
 	}
 
 	fclose(stdin);
