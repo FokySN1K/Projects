@@ -174,6 +174,7 @@ void solution(int** massiv, int* line_information, int N) {
 
             if (!(amount_of_busy_lines(line_information1, N) == amount_of_busy_lines(line_information, N))) {
                 solution(massiv1, line_information1, N);
+                delete_massiv_N_N(massiv1, N);
                 massiv1 = copy_massiv_N_N(massiv, N);//возвращаемся к исходному состоянию
                 line_information1[line] = 0;
             }
