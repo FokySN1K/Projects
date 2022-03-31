@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include < assert.h >
-
+#include <locale.h>
 //int AMOUNT_SOLUTION = 0;
 
 void print_massiv_N(int* arr, int N);
@@ -33,7 +33,9 @@ void proverka(const int** massiv, int N); // проверяет все ли 2 н
 
 int main()
 {
-    int size_massiv = 5;
+    setlocale(LC_ALL, "Rus");
+
+    int size_massiv = 4;
     int** massiv = NULL;
     int* line_information = NULL;
     /*
@@ -77,7 +79,7 @@ void print_massiv_N_N(int** massiv, int N) {
     printf("............\n");
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < N; j++) {
-            printf("%i ", massiv[i][j]);
+            printf("%c ", (massiv[i][j] == 2) ? ('Ф') : ('*'));
         }
         printf("\n");
     }

@@ -80,6 +80,6 @@ void search_pattern_in_text(char* FILE_WAY, char* STRING) {
 		//printf("%s\n", additional_string);
 		//printf("............\n");
 	}
-
+	free(additional_string);
 	fclose(stdin);
 }
