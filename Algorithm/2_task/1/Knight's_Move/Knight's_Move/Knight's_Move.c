@@ -145,11 +145,11 @@ void beatiful_print_moving_from_horse(int** massiv, int N) {
 	for (int index = 1; index <= N * N; index++) {
 		for (int i = 0; i < N; i++) {
 			for (int j = 0; j < N; j++) {
-				printf("%c ", (massiv[i][j] == index) ? ('Ф') : ('-'));
+				printf("%c ", (massiv[i][j] == index) ? ('K') : ('-'));
 			}
 			printf("\n");
 		}
-		Sleep(1000);
-		printf("\033[0d\033[2J"); // очистка консоли
+		Sleep(200);
+		printf("\033[0d\033[2J"); // сдвиг курсора(имитация "стирания" консоли)
 	}
 }
