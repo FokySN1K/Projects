@@ -13,30 +13,56 @@ int sum_of_moves(int** massiv, int N, int x1, int y1); // количество �
 void solution(int** massiv, int N, int x1, int y1, int* horse); // x1 - строка, y1 - столбец
 int proverka(int** massiv, int N);
 void beatiful_print_moving_from_horse(int** massiv, int N); // просто красивый вывод
+int test_solution(int** massiv, int N) {
+	int sum_proverka = 0;
+	for (int i = 0; i < N; i++) {
+		for (int j = 0; j < N; j++) {
+			int horse = 1;
+			massiv[i][j] = 1;
+			solution(massiv, N, i, j, &horse);
+			sum_proverka += proverka(massiv, N);
+			if (!proverka(massiv, N)) {
+				printf("%i %i\n", i, j);
+			}
+			for (int i = 0; i < N; i++) {
+				for (int j = 0; j < N; j++) {
+					massiv[i][j] = 0;
+				}
+			}
+		}
+	}
+	return sum_proverka;
+	
+}
 
 int main() {
 	setlocale(LC_ALL, "Rus");
 
 	int size_massiv = 8;
 	int** massiv = NULL; // таблица, по которой ходит конь
-	int horse = 0;
+	int horse = 1;
 
 	massiv = create_massiv_N_N(size_massiv);
 	
-	int x1 = 0, y1 = 0; // надо вводиить вручную
-	massiv[x1][y1] = 1;
-	horse += 1;
-
-	solution(massiv, size_massiv, x1, y1, &horse);
+	//int x1 = 6, y1 = 1; // надо вводить вручную
+	//massiv[x1][y1] = 1;
+	//horse += 1;
 
 	
-	if (proverka(massiv, size_massiv)) {
-		beatiful_print_moving_from_horse(massiv, size_massiv);
-		print_massiv_N_N(massiv, size_massiv);
-	}
-	else {
-		printf("К сожалению, произошла ошибка. Получен неправильный массив\n");
-	}
+
+	printf("%i", test_solution(massiv, size_massiv));
+	//solution(massiv, size_massiv, x1, y1, &horse);
+
+	//print_massiv_N_N(massiv, size_massiv);
+	// 
+	//if (proverka(massiv, size_massiv)) {
+	//	//beatiful_print_moving_from_horse(massiv, size_massiv);
+	//	print_massiv_N_N(massiv, size_massiv);
+	//}
+	//else {
+	//	printf("К сожалению, произошла ошибка. Получен неправильный массив\n");
+	//}
+
 	delete_massiv_N_N(massiv, size_massiv);
 
 }
@@ -56,7 +82,7 @@ int** create_massiv_N_N(int N) {
 void print_massiv_N_N(int** massiv, int N) {
 	for (int i = 0; i < N; i++) {
 		for (int j = 0; j < N; j++) {
-			printf("%2i ", massiv[i][j]);
+			printf("%3i ", massiv[i][j]);
 		}
 		printf("\n");
 	}
@@ -85,29 +111,20 @@ int sum_of_moves(int** massiv, int N, int x1, int y1) {
 			}
 		}
 	}
-	if (sum == 0) {
-		return 1; // ходов не осталось -> эта клетка последняя незанятая
-	}
-	else {
-		return sum;
-	}
+	return sum;
 }
 void solution(int** massiv, int N, int x1, int y1, int* horse) {
-	int max = 100000;
+	int min = 100000;
 	int x3 = 0, y3 = 0;
 	int sum = 0;
 	for (int x2 = 0; x2 < N; x2++) {
 		for (int y2 = 0; y2 < N; y2++) {
-			if (can_horse_move(x1, y1, x2, y2)) {
+			if (massiv[x2][y2] == 0 && can_horse_move(x1, y1, x2, y2)) {
 				//printf("%i %i\n", x2, y2);
-				if (massiv[x2][y2] != 0) {
-					sum = 0;
-				}
-				else {
-					sum = sum_of_moves(massiv, N, x2, y2);
-				}
-				if (sum < max && sum != 0) { // sum = 0 -> клетка занята
-					max = sum;
+				sum = sum_of_moves(massiv, N, x2, y2);
+
+				if (sum < min) { // sum = 0 -> клетка занята
+					min = sum;
 					x3 = x2;
 					y3 = y2;
 				}
