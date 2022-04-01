@@ -13,55 +13,83 @@ int sum_of_moves(int** massiv, int N, int x1, int y1); // количество �
 void solution(int** massiv, int N, int x1, int y1, int* horse); // x1 - строка, y1 - столбец
 int proverka(int** massiv, int N);
 void beatiful_print_moving_from_horse(int** massiv, int N); // просто красивый вывод
+void massiv_N_N_to_null(int** massiv, int N) {
+	for (int i = 0; i < N; i++) {
+		for (int j = 0; j < N; j++) {
+			massiv[i][j] = 0;
+		}
+	}
+}
 int test_solution(int** massiv, int N) {
 	int sum_proverka = 0;
 	for (int i = 0; i < N; i++) {
 		for (int j = 0; j < N; j++) {
-			int horse = 1;
-			massiv[i][j] = 1;
-			solution(massiv, N, i, j, &horse);
+			solution_with_check(massiv, N, i, j);
 			sum_proverka += proverka(massiv, N);
 			if (!proverka(massiv, N)) {
 				printf("%i %i\n", i, j);
 			}
-			for (int i = 0; i < N; i++) {
-				for (int j = 0; j < N; j++) {
-					massiv[i][j] = 0;
-				}
-			}
+			massiv_N_N_to_null(massiv, N);
 		}
 	}
 	return sum_proverka;
-	
+}
+int solution_with_check(int** massiv, int N, int x1, int y1) {
+	int horse = 1;
+	massiv[x1][y1] = 1;
+	solution(massiv, N, x1, y1, &horse);
+	if (proverka(massiv, N)) {
+		return 1;
+	}
+	else {
+		// ищем поле, которое будет правильным
+		for (int i = 0; i < N; i++) {
+			for (int j = 0; j < N; j++) {
+				horse = 1;
+				massiv_N_N_to_null(massiv, N);
+				massiv[i][j] = 1;
+				solution(massiv, N, i, j, &horse);
+				if (proverka(massiv, N)) {
+					int difference = massiv[x1][y1] - 1;
+					// изменяем ходы, как будто мы ходили с заданного поля
+					for (int x2 = 0; x2 < N; x2++) {
+						for (int y2 = 0; y2 < N; y2++) {
+							if (massiv[x2][y2] > difference) {
+								massiv[x2][y2] -= difference;
+							}
+							else {
+								massiv[x2][y2] = N*N + massiv[x2][y2] - difference;
+							}
+						}
+					}
+					return 1;
+				}
+			}
+		}
+		return 0;
+	}
 }
 
 int main() {
 	setlocale(LC_ALL, "Rus");
 
-	int size_massiv = 8;
+	int size_massiv = 3;
 	int** massiv = NULL; // таблица, по которой ходит конь
 	int horse = 1;
+	int x1 = 2, y1 = 0;
 
 	massiv = create_massiv_N_N(size_massiv);
 	
-	//int x1 = 6, y1 = 1; // надо вводить вручную
-	//massiv[x1][y1] = 1;
-	//horse += 1;
+	//printf("%i", test_solution(massiv, size_massiv));
 
-	
+	if (solution_with_check(massiv, size_massiv, x1, y1)) {
+		beatiful_print_moving_from_horse(massiv, size_massiv);
+		print_massiv_N_N(massiv, size_massiv);
+	}
+	else {
+		printf("К сожалению, произошла ошибка. Возможно, ответа не существует\n");
+	}
 
-	printf("%i", test_solution(massiv, size_massiv));
-	//solution(massiv, size_massiv, x1, y1, &horse);
-
-	//print_massiv_N_N(massiv, size_massiv);
-	// 
-	//if (proverka(massiv, size_massiv)) {
-	//	//beatiful_print_moving_from_horse(massiv, size_massiv);
-	//	print_massiv_N_N(massiv, size_massiv);
-	//}
-	//else {
-	//	printf("К сожалению, произошла ошибка. Получен неправильный массив\n");
-	//}
 
 	delete_massiv_N_N(massiv, size_massiv);
 
