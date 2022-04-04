@@ -1,4 +1,3 @@
 ﻿  Knight's_Move.c
-C:\Yaroslav\Projects\Algorithm\2_task\1\Knight's_Move\Knight's_Move\Knight's_Move.c(27,23): warning C4013: solution_with_check: нет определения; предполагается "extern" с возвратом типа "int"
-C:\Yaroslav\Projects\Algorithm\2_task\1\Knight's_Move\Knight's_Move\Knight's_Move.c(197,8): warning C4013: Sleep: нет определения; предполагается "extern" с возвратом типа "int"
+C:\Yaroslav\Projects\Algorithm\2_task\1\Knight's_Move\Knight's_Move\Knight's_Move.c(178,8): warning C4013: Sleep: нет определения; предполагается "extern" с возвратом типа "int"
   Knight's_Move.vcxproj -> C:\Yaroslav\Projects\Algorithm\2_task\1\Knight's_Move\x64\Debug\Knight's_Move.exe
