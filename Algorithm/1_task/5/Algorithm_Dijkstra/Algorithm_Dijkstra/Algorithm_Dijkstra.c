@@ -6,8 +6,9 @@
 int** create_massiv_distance(int** massiv, int* n); // создание двумерного массива
 void print_massiv_distance(int** massiv, int n); // печать двумерного квадратного массива
 void delete_massiv(int** massiv, int n); // освобождение памяти
-int* solution(int** massiv, int n); // 0 вершина
+int* solution(int** massiv, int n); // 0 вершина(можно заменить в коде)
 void route(int** massiv, int* problem, int n);// для 0 вершины
+void route_1(int** massiv, int* problem, int n, int vertex); // для n-ой вершины (вершины вводятся не с 0, а с 1)
 
 int main() {
 	freopen("c:/Yaroslav/2.txt", "r", stdin);
@@ -20,9 +21,10 @@ int main() {
 	problem = solution(massiv_distance, n);
 
 	/*for (int i = 0; i < n; i++) {
-		printf("%i ", problem[i]);
+		printf("%i ", problem[i] + 1);
 	}*/
 	route(massiv_distance, problem, n);
+	//route_1(massiv_distance, problem, n, 1);
 
 	delete_massiv(massiv_distance, n);
 	free(problem);
@@ -62,7 +64,8 @@ int* solution(int** massiv, int n) {
 	int* problem = (int*)calloc(n, sizeof(int));// вершины, из которых быстрее всего добираться
 	int size = 1;
 	int* arr = (int*)calloc(n, sizeof(int)); // массив с ребрами, из которых будем выбирать
-	int vertic = 0;// вершина, от которой мы всё ищем
+	int vertic = 0;//!!!!!!!! вершина, от которой мы всё ищем
+	//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Надо потребовать scanf от пользователя в  main, а потом передать в route_1
 	vertics[vertic] = 1;
 	for (int i = 0; i < n; i++) {
 		arr[i] = massiv[vertic][i];
@@ -114,6 +117,32 @@ void route(int** massiv, int* problem, int n) { // печатает с 1, при
 			}
 			sum += massiv[0][w];
 			printf("1\n");
+		}
+		printf("Total distance: %i\n", sum);
+		printf("...............\n");
+	}
+}
+void route_1(int** massiv, int* problem, int n, int vertex) { // печатает с 1, принимая, что 1 - начало
+	vertex -= 1;
+	for (int i = 0; i < n; i++) {
+		if (i == vertex) {
+			continue;
+		}
+		int w = i;
+		int sum = 0;// суммарная длина
+		if (problem[i] == vertex) {
+			sum = massiv[vertex][i];
+			printf("%i: %i-%i\n", i + 1, i + 1, vertex + 1);
+		}
+		else {
+			printf("%i: %i-", i + 1, i + 1);
+			while (problem[w] != vertex) {
+				sum += massiv[problem[w]][w];
+				printf("%i-", problem[w] + 1);
+				w = problem[w];
+			}
+			sum += massiv[vertex][w];
+			printf("%i\n", vertex + 1);
 		}
 		printf("Total distance: %i\n", sum);
 		printf("...............\n");
