@@ -50,14 +50,13 @@ void bubble_sort(struct edge* vector, unsigned int NUM) {
 
 //вывод "пригодных" заявок
 void print_vector(struct edge* vector, unsigned int NUM) {
-	printf("................\n");
 	for (unsigned int i = 0; i < NUM; i++) {
 		printf("%i %i\n", vector[i].begin, vector[i].end);
 	}
 }
 void print_vector_size(unsigned int NUM) {
 	printf("................\n");
-	printf("%u", NUM);
+	printf("%u\n", NUM);
 }
 
 /*учитываем, что время не может быть отрицательным, тем самым
@@ -69,8 +68,8 @@ struct edge* solution(struct edge* vector, unsigned int* NUM) {
 	int end = vector[0].end;
 	for (unsigned int i = 1; i < NUM_1; i++) {
 		if (end > vector[i].begin) {
-			vector[i].begin = vector[i].end = -1;
-			(*NUM)--;
+			vector[i].begin = vector[i].end = -1; // выбрасываем ненужные заявки
+			(*NUM)--; //кол-во "правильных" заявок
 		}
 		else {
 			end = vector[i].end;
@@ -78,12 +77,14 @@ struct edge* solution(struct edge* vector, unsigned int* NUM) {
 	}
 	Edge* vector_1 = (Edge*)calloc(*NUM, sizeof(Edge));
 	unsigned NUM_2 = 0;
-	for (unsigned int i = 0; i < NUM_1 - 1 || NUM_2 != *NUM; i++) {
-		if (vector[i].begin != -1) {
+	for (unsigned int i = 0; i < NUM_1 && NUM_2 != *NUM; i++) { // Два случая: нужные заявки в конце, нужные заявки в начале
+		if (vector[i].begin != -1) { // !!! Здесь int-ое значение, так что в норме
 			vector_1[NUM_2] = vector[i];
 			NUM_2++;
 		}
 	}	
+	// 
+	
 	return vector_1;
 }
 
