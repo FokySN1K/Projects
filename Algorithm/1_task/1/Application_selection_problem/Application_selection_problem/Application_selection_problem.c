@@ -78,13 +78,13 @@ struct edge* solution(struct edge* vector, unsigned int* NUM) {
 	Edge* vector_1 = (Edge*)calloc(*NUM, sizeof(Edge));
 	unsigned NUM_2 = 0;
 	for (unsigned int i = 0; i < NUM_1 && NUM_2 != *NUM; i++) { // Два случая: нужные заявки в конце, нужные заявки в начале
-		if (vector[i].begin != -1) { // !!! Здесь int-ое значение, так что в норме
+		if (vector[i].begin != -1) { // !!! Здесь int-ое значение, так что всё в норме
 			vector_1[NUM_2] = vector[i];
 			NUM_2++;
 		}
 	}	
-	// 
 	
+	free(vector); // ОБЯЗАТЕЛЬНО ОЧИСТИТЬ, ИНАЧЕ УТЕЧКА ПАМЯТИ
 	return vector_1;
 }
 
