@@ -2,5 +2,4 @@
 C:\Yaroslav\Projects\Algorithm\2_task\2\Arrangement_of_queens\Arrangement_of_queens\Arrangement_of_queens.c(120,49): warning C4029: объявленный список формальных параметров отличается от объявления
 C:\Yaroslav\Projects\Algorithm\2_task\2\Arrangement_of_queens\Arrangement_of_queens\Arrangement_of_queens.c(150,21): warning C4028: формальный параметр 1 отличается от объявления
 C:\Yaroslav\Projects\Algorithm\2_task\2\Arrangement_of_queens\Arrangement_of_queens\Arrangement_of_queens.c(119): warning C4715: first_empty_line: значение возвращается не при всех путях выполнения
-  LINK : не найден или не выполнена сборка C:\Yaroslav\Projects\Algorithm\2_task\2\Arrangement_of_queens\x64\Debug\Arrangement_of_queens.exe при последней инкрементной компоновке; выполняется полная компоновка
   Arrangement_of_queens.vcxproj -> C:\Yaroslav\Projects\Algorithm\2_task\2\Arrangement_of_queens\x64\Debug\Arrangement_of_queens.exe

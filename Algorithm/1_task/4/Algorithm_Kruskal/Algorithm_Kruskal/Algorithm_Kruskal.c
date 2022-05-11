@@ -46,7 +46,7 @@ void paint_the_vertices(Edge* vector, int size, int need_vertix, int dop_color, 
 }
 
 int main() {
-	freopen("C:/Yaroslav/1.txt", "r", stdin);
+	freopen("C:/Yaroslav/Projects/Algorithm/1_task/4/example.txt", "r", stdin);
 	int** massiv = NULL;
 	int n;
 	int** problem = NULL;//остовное дерево
@@ -63,7 +63,7 @@ int main() {
 	delete_massiv(massiv, n);
 	delete_massiv(problem, n);
 	free(vector);
-}
+}	
 
 int** solution(Edge* vector, int size, int size_vertex) {
 	int** problem = (int**)calloc(size_vertex, sizeof(int*));// остовное дерево

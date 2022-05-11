@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include < assert.h >
 #include <locale.h>
-//int AMOUNT_SOLUTION = 0;
+int AMOUNT_SOLUTION = 0;
 
 void print_massiv_N(int* arr, int N);
 int** create_massiv_N_N(int N); // создание квадратного массива размера N
@@ -35,7 +35,7 @@ int main()
 {
     setlocale(LC_ALL, "Rus");
 
-    int size_massiv = 4;
+    int size_massiv = 8;
     int** massiv = NULL;
     int* line_information = NULL;
     /*
@@ -48,7 +48,7 @@ int main()
     line_information = (int*)calloc(size_massiv, sizeof(int));
 
     solution(massiv, line_information, size_massiv);
-    //printf("%i", AMOUNT_SOLUTION);
+    printf("%i", AMOUNT_SOLUTION);
 
     delete_massiv_N_N(massiv, size_massiv);
     free(line_information);

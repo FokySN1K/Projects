@@ -11,7 +11,7 @@ void solution(int** massiv_distance, int** massiv, int n);
 
 
 int main() {
-	freopen("C:/Yaroslav/1.txt", "r", stdin);
+	freopen("C:/Yaroslav/Projects/Algorithm/1_task/3/example.txt", "r", stdin);
 	int** massiv_distance = NULL;
 	int n;
 	int** massiv = NULL;// массив, который нам покажет нужные соединения

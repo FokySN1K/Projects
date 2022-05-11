@@ -22,7 +22,7 @@ void beatiful_print_moving_from_horse(int** massiv, int N); // просто кр
 
 // ПРОВЕРКА РЕШЕНИЯ
 int checking(int** massiv, int N); // простая проверка суммой
-int big_checking(int** massiv, int N); // 0 - решения нет, 1 - решение изначально было получено верно, 2 - решение было исправлено
+int big_checking(int** massiv, int N, int x, int y); // 0 - решения нет, 1 - решение изначально было получено верно, 2 - решение было исправлено
 int testing(int** massiv, int N);
 
 
@@ -33,10 +33,10 @@ int testing(int** massiv, int N);
 int main() {
 	setlocale(LC_ALL, "Rus");
 
-	int size_massiv = 8;
+	int size_massiv = 5;
 	int** massiv = NULL; // таблица, по которой ходит конь
 	int horse = 1;
-	int x1 = 7, y1 = 5;
+	int x1 = 1, y1 = 1;
 
 	massiv = create_massiv_N_N(size_massiv);
 	
@@ -45,7 +45,7 @@ int main() {
 	solution(massiv, size_massiv, x1, y1, &horse);
 
 	//testing(massiv, size_massiv); // простая подстановка чисел
-	int number_solution = big_checking(massiv, size_massiv);
+	int number_solution = big_checking(massiv, size_massiv, x1, y1);
 
 	if (number_solution == 1) {
 		printf("Еееееее, всё прошло гладко!\n");
@@ -200,7 +200,7 @@ int checking(int** massiv, int N) {
 	}
 	return 0;
 }
-int  big_checking(int** massiv, int N) {
+int  big_checking(int** massiv, int N, int x, int y) {
 	if (checking(massiv, N)) {
 		return 1;
 	}
@@ -217,7 +217,9 @@ int  big_checking(int** massiv, int N) {
 				solution(massiv, N, x1, y1, &horse);
 				if (checking(massiv, N)) {
 
-					int difference = massiv[x1][y1] - 1;
+					print_massiv_N_N(massiv, N);
+					int difference = massiv[x][y] - 1;
+					printf("%i\n", difference);
 					// изменяем ходы, как будто мы ходили с заданного поля
 					for (int x2 = 0; x2 < N; x2++) {
 						for (int y2 = 0; y2 < N; y2++) {

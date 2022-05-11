@@ -11,7 +11,7 @@ void dfs(int** massiv, int size, int* paint, int vertex, int* problem, int* len)
 
 int main(){
 	setlocale(LC_ALL, "Rus");
-	freopen("c:/Yaroslav/3.txt", "r", stdin);
+	freopen("c:/Yaroslav//Projects/Algorithm/1_task/6/EXAMPLE.txt", "r", stdin);
 
 	int** massiv_distance = NULL;
 	int n;

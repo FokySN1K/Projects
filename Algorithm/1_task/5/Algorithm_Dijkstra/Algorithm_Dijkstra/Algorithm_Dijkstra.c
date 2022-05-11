@@ -11,7 +11,7 @@ void route(int** massiv, int* problem, int n);// для 0 вершины
 void route_1(int** massiv, int* problem, int n, int vertex); // для n-ой вершины (вершины вводятся не с 0, а с 1)
 
 int main() {
-	freopen("c:/Yaroslav/2.txt", "r", stdin);
+	freopen("c:/Yaroslav/Projects/Algorithm/1_task/5/EXAMPLE.txt", "r", stdin);
 	int** massiv_distance = NULL;
 	int n;
 

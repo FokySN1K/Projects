@@ -8,6 +8,7 @@ void delete_massiv(int** massiv, int n); // освобождение памят�
 void solution(int** massiv, int n);
 
 int main() {
+
 	int** massiv_distance = NULL;
 	int n; // n - кол-во строк, m - кол-во столбцов
 	massiv_distance = create_massiv_distance(massiv_distance, &n); // Почему надо передавать так?
