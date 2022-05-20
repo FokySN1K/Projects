@@ -23,7 +23,31 @@ void beatiful_print_moving_from_horse(int** massiv, int N); // просто кр
 // ПРОВЕРКА РЕШЕНИЯ
 int checking(int** massiv, int N); // простая проверка суммой
 int big_checking(int** massiv, int N, int x, int y); // 0 - решения нет, 1 - решение изначально было получено верно, 2 - решение было исправлено
-int testing(int** massiv, int N);
+int testing(int** massiv, int N); // смотрит на все доски, которые нельзя заполнить без big_checking
+int last_chance(int ** massiv, int N) {
+	int x = 0, y = 0;
+	int x1 = 0, y1 = 0;
+	for (int x2 = 0; x2 < N; x2++ ) {
+		for (int y2 = 0; y2 < N; y2++) {
+			if (massiv[x2][y2] == 0) {
+				x = x2;
+				y = y2;
+			}
+			else if (massiv[x2][y2] == N*N) {
+				x1 = x2;
+				y1 = y2;
+			}
+		}
+	}
+	if (( abs(x1 - x) == 1 && abs(y1 - y) == 2)  || (abs(x1 - x) == 2 && abs(y1 - y) == 1)) {
+		//printf("%i %i", x1, y1);
+		return 1;
+	}
+	else {
+		return 0;
+	}
+}
+
 
 
 
@@ -215,7 +239,7 @@ int  big_checking(int** massiv, int N, int x, int y) {
 				massiv_N_N_to_null(massiv, N);
 				massiv[x1][y1] = 1;
 				solution(massiv, N, x1, y1, &horse);
-				if (checking(massiv, N)) {
+				if (checking(massiv, N) && last_chance(massiv, N)) {
 
 					print_massiv_N_N(massiv, N);
 					int difference = massiv[x][y] - 1;

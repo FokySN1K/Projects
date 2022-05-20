@@ -28,7 +28,7 @@ void get_string(char* string, BIG len) {
 int main() {
 
 	char* FILE_WAY = "C:/Yaroslav/Projects/Algorithm/2_task/3/EXAMPLE.txt"; 
-	char* STRING = "Now we study at the same university And though we study at different faculties, we see each other almost every day. \nMy best friend is the first to come and support me in any difficult situation. ";//подстрока
+	char* STRING = "Let";//подстрока
 
 
 	search_pattern_in_text(FILE_WAY, STRING);
@@ -69,9 +69,7 @@ void search_pattern_in_text(char* FILE_WAY, char* STRING) {
 		// сначала меняем хеш дополнительной строки
 		// потом саму строку
 		additional_hash = ((additional_hash - additional_string[0]*MAX_POWER)*POWER + c) % MOD;
-		if (additional_hash < 0) {
-			additional_hash += MOD;
-		}
+		
 		for (BIG j = 0; j < len_STRING - 1; j++) {
 			additional_string[j] = additional_string[j + 1];
 		}
