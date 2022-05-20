@@ -241,9 +241,9 @@ int  big_checking(int** massiv, int N, int x, int y) {
 				solution(massiv, N, x1, y1, &horse);
 				if (checking(massiv, N) && last_chance(massiv, N)) {
 
-					print_massiv_N_N(massiv, N);
+					//print_massiv_N_N(massiv, N);
 					int difference = massiv[x][y] - 1;
-					printf("%i\n", difference);
+					//printf("%i\n", difference);
 					// изменяем ходы, как будто мы ходили с заданного поля
 					for (int x2 = 0; x2 < N; x2++) {
 						for (int y2 = 0; y2 < N; y2++) {
