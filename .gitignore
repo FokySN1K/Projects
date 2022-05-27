@@ -1,5 +1,9 @@
+# Folder
+/Logoped
+
 # Prerequisites
 *.d
+
 
 # Object files
 *.o
