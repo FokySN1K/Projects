@@ -29,7 +29,7 @@ int last_chance(int ** massiv, int N) {
 	int x1 = 0, y1 = 0;
 	for (int x2 = 0; x2 < N; x2++ ) {
 		for (int y2 = 0; y2 < N; y2++) {
-			if (massiv[x2][y2] == 0) {
+			if (massiv[x2][y2] == 1) {
 				x = x2;
 				y = y2;
 			}
@@ -40,7 +40,7 @@ int last_chance(int ** massiv, int N) {
 		}
 	}
 	if (( abs(x1 - x) == 1 && abs(y1 - y) == 2)  || (abs(x1 - x) == 2 && abs(y1 - y) == 1)) {
-		//printf("%i %i", x1, y1);
+		printf("%i %i", x1, y1);
 		return 1;
 	}
 	else {
@@ -57,10 +57,10 @@ int last_chance(int ** massiv, int N) {
 int main() {
 	setlocale(LC_ALL, "Rus");
 
-	int size_massiv = 5;
+	int size_massiv = 6;
 	int** massiv = NULL; // таблица, по которой ходит конь
 	int horse = 1;
-	int x1 = 1, y1 = 1;
+	int x1 = 4, y1 = 1;
 
 	massiv = create_massiv_N_N(size_massiv);
 	
