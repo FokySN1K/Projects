@@ -1,0 +1,15 @@
+﻿  julia.cpp
+C:\Users\yaros\OneDrive\МФТИ\Домашнее задание\3_семестр\Cpp\1_семинар\julia\julia\julia.cpp(14,13): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\yaros\OneDrive\МФТИ\Домашнее задание\3_семестр\Cpp\1_семинар\julia\julia\julia.cpp(14,9): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "func"
+C:\Users\yaros\OneDrive\МФТИ\Домашнее задание\3_семестр\Cpp\1_семинар\julia\julia\julia.cpp(14,25): error C2143: синтаксическая ошибка: отсутствие ";" перед "{"
+C:\Users\yaros\OneDrive\МФТИ\Домашнее задание\3_семестр\Cpp\1_семинар\julia\julia\julia.cpp(14,25): error C2447: {: отсутствует заголовок функции (возможно, используется формальный список старого типа)
+C:\Users\yaros\OneDrive\МФТИ\Домашнее задание\3_семестр\Cpp\1_семинар\julia\julia\julia.cpp(40,12): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "z"
+C:\Users\yaros\OneDrive\МФТИ\Домашнее задание\3_семестр\Cpp\1_семинар\julia\julia\julia.cpp(40,12): error C2065: z: необъявленный идентификатор
+C:\Users\yaros\OneDrive\МФТИ\Домашнее задание\3_семестр\Cpp\1_семинар\julia\julia\julia.cpp(40,73): error C3079: список инициализаторов не может использоваться в качестве правого операнда оператора назначения
+C:\Users\yaros\OneDrive\МФТИ\Домашнее задание\3_семестр\Cpp\1_семинар\julia\julia\julia.cpp(41,12): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "f"
+C:\Users\yaros\OneDrive\МФТИ\Домашнее задание\3_семестр\Cpp\1_семинар\julia\julia\julia.cpp(41,12): error C2065: f: необъявленный идентификатор
+C:\Users\yaros\OneDrive\МФТИ\Домашнее задание\3_семестр\Cpp\1_семинар\julia\julia\julia.cpp(41,21): error C2065: z: необъявленный идентификатор
+C:\Users\yaros\OneDrive\МФТИ\Домашнее задание\3_семестр\Cpp\1_семинар\julia\julia\julia.cpp(41,16): error C3861: func: идентификатор не найден
+C:\Users\yaros\OneDrive\МФТИ\Домашнее задание\3_семестр\Cpp\1_семинар\julia\julia\julia.cpp(43,28): error C2065: f: необъявленный идентификатор
+C:\Users\yaros\OneDrive\МФТИ\Домашнее задание\3_семестр\Cpp\1_семинар\julia\julia\julia.cpp(44,28): error C2065: f: необъявленный идентификатор
+C:\Users\yaros\OneDrive\МФТИ\Домашнее задание\3_семестр\Cpp\1_семинар\julia\julia\julia.cpp(49,15): error C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
