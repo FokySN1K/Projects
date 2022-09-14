@@ -1,5 +1,7 @@
-﻿#include <cstdio>
+﻿#define _CRT_SECURE_NO_WARNINGS
+#include <cstdio>
 #include <cstdlib>
+#include <iostream>
 #include <cmath>
 #include "complex.h"
 using namespace std;

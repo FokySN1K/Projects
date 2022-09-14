@@ -1,15 +1,26 @@
 ﻿  julia.cpp
-C:\Users\yaros\OneDrive\МФТИ\Домашнее задание\3_семестр\Cpp\1_семинар\julia\julia\julia.cpp(14,13): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
-C:\Users\yaros\OneDrive\МФТИ\Домашнее задание\3_семестр\Cpp\1_семинар\julia\julia\julia.cpp(14,9): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "func"
-C:\Users\yaros\OneDrive\МФТИ\Домашнее задание\3_семестр\Cpp\1_семинар\julia\julia\julia.cpp(14,25): error C2143: синтаксическая ошибка: отсутствие ";" перед "{"
-C:\Users\yaros\OneDrive\МФТИ\Домашнее задание\3_семестр\Cpp\1_семинар\julia\julia\julia.cpp(14,25): error C2447: {: отсутствует заголовок функции (возможно, используется формальный список старого типа)
-C:\Users\yaros\OneDrive\МФТИ\Домашнее задание\3_семестр\Cpp\1_семинар\julia\julia\julia.cpp(40,12): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "z"
-C:\Users\yaros\OneDrive\МФТИ\Домашнее задание\3_семестр\Cpp\1_семинар\julia\julia\julia.cpp(40,12): error C2065: z: необъявленный идентификатор
-C:\Users\yaros\OneDrive\МФТИ\Домашнее задание\3_семестр\Cpp\1_семинар\julia\julia\julia.cpp(40,73): error C3079: список инициализаторов не может использоваться в качестве правого операнда оператора назначения
-C:\Users\yaros\OneDrive\МФТИ\Домашнее задание\3_семестр\Cpp\1_семинар\julia\julia\julia.cpp(41,12): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "f"
-C:\Users\yaros\OneDrive\МФТИ\Домашнее задание\3_семестр\Cpp\1_семинар\julia\julia\julia.cpp(41,12): error C2065: f: необъявленный идентификатор
-C:\Users\yaros\OneDrive\МФТИ\Домашнее задание\3_семестр\Cpp\1_семинар\julia\julia\julia.cpp(41,21): error C2065: z: необъявленный идентификатор
-C:\Users\yaros\OneDrive\МФТИ\Домашнее задание\3_семестр\Cpp\1_семинар\julia\julia\julia.cpp(41,16): error C3861: func: идентификатор не найден
-C:\Users\yaros\OneDrive\МФТИ\Домашнее задание\3_семестр\Cpp\1_семинар\julia\julia\julia.cpp(43,28): error C2065: f: необъявленный идентификатор
-C:\Users\yaros\OneDrive\МФТИ\Домашнее задание\3_семестр\Cpp\1_семинар\julia\julia\julia.cpp(44,28): error C2065: f: необъявленный идентификатор
-C:\Users\yaros\OneDrive\МФТИ\Домашнее задание\3_семестр\Cpp\1_семинар\julia\julia\julia.cpp(49,15): error C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Yaroslav\Projects\3_semester\1_seminar\julia\julia\julia.cpp(45,29): warning C4244: =: преобразование "float" в "unsigned char", возможна потеря данных
+C:\Yaroslav\Projects\3_semester\1_seminar\julia\julia\julia.cpp(46,29): warning C4244: =: преобразование "float" в "unsigned char", возможна потеря данных
+julia.obj : error LNK2005: "class std::basic_istream<char,struct std::char_traits<char> > & __cdecl operator>>(class std::basic_istream<char,struct std::char_traits<char> > &,struct Complex &)" (??5@YAAEAV?$basic_istream@DU?$char_traits@D@std@@@std@@AEAV01@AEAUComplex@@@Z) уже определен в complex.obj
+julia.obj : error LNK2005: "class std::basic_ostream<char,struct std::char_traits<char> > & __cdecl operator<<(class std::basic_ostream<char,struct std::char_traits<char> > &,struct Complex const &)" (??6@YAAEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEAV01@AEBUComplex@@@Z) уже определен в complex.obj
+julia.obj : error LNK2005: "struct Complex __cdecl operator*(struct Complex const &,struct Complex const &)" (??D@YA?AUComplex@@AEBU0@0@Z) уже определен в complex.obj
+julia.obj : error LNK2005: "struct Complex __cdecl operator*(struct Complex const &)" (??D@YA?AUComplex@@AEBU0@@Z) уже определен в complex.obj
+julia.obj : error LNK2005: "struct Complex __cdecl operator*(struct Complex const &,float)" (??D@YA?AUComplex@@AEBU0@M@Z) уже определен в complex.obj
+julia.obj : error LNK2005: "struct Complex __cdecl operator*(float,struct Complex const &)" (??D@YA?AUComplex@@MAEBU0@@Z) уже определен в complex.obj
+julia.obj : error LNK2005: "struct Complex __cdecl operator-(struct Complex const &,struct Complex const &)" (??G@YA?AUComplex@@AEBU0@0@Z) уже определен в complex.obj
+julia.obj : error LNK2005: "struct Complex __cdecl operator-(struct Complex const &)" (??G@YA?AUComplex@@AEBU0@@Z) уже определен в complex.obj
+julia.obj : error LNK2005: "struct Complex __cdecl operator-(struct Complex const &,float)" (??G@YA?AUComplex@@AEBU0@M@Z) уже определен в complex.obj
+julia.obj : error LNK2005: "struct Complex __cdecl operator-(float,struct Complex const &)" (??G@YA?AUComplex@@MAEBU0@@Z) уже определен в complex.obj
+julia.obj : error LNK2005: "struct Complex __cdecl operator+(struct Complex const &,struct Complex const &)" (??H@YA?AUComplex@@AEBU0@0@Z) уже определен в complex.obj
+julia.obj : error LNK2005: "struct Complex __cdecl operator+(struct Complex const &)" (??H@YA?AUComplex@@AEBU0@@Z) уже определен в complex.obj
+julia.obj : error LNK2005: "struct Complex __cdecl operator+(struct Complex const &,float)" (??H@YA?AUComplex@@AEBU0@M@Z) уже определен в complex.obj
+julia.obj : error LNK2005: "struct Complex __cdecl operator+(float,struct Complex const &)" (??H@YA?AUComplex@@MAEBU0@@Z) уже определен в complex.obj
+julia.obj : error LNK2005: "struct Complex __cdecl operator/(struct Complex const &,struct Complex const &)" (??K@YA?AUComplex@@AEBU0@0@Z) уже определен в complex.obj
+julia.obj : error LNK2005: "struct Complex __cdecl operator/(struct Complex const &,float)" (??K@YA?AUComplex@@AEBU0@M@Z) уже определен в complex.obj
+julia.obj : error LNK2005: "struct Complex __cdecl operator/(float,struct Complex const &)" (??K@YA?AUComplex@@MAEBU0@@Z) уже определен в complex.obj
+julia.obj : error LNK2005: "struct Complex & __cdecl operator+=(struct Complex &,struct Complex const &)" (??Y@YAAEAUComplex@@AEAU0@AEBU0@@Z) уже определен в complex.obj
+julia.obj : error LNK2005: "float __cdecl abs(struct Complex const &)" (?abs@@YAMAEBUComplex@@@Z) уже определен в complex.obj
+julia.obj : error LNK2005: "struct Complex __cdecl cos(struct Complex const &)" (?cos@@YA?AUComplex@@AEBU1@@Z) уже определен в complex.obj
+julia.obj : error LNK2005: "struct Complex __cdecl exp(struct Complex const &)" (?exp@@YA?AUComplex@@AEBU1@@Z) уже определен в complex.obj
+julia.obj : error LNK2005: "struct Complex __cdecl sin(struct Complex const &)" (?sin@@YA?AUComplex@@AEBU1@@Z) уже определен в complex.obj
+C:\Yaroslav\Projects\3_semester\1_seminar\julia\x64\Debug\julia.exe : fatal error LNK1169: обнаружен многократно определенный символ - один или более
