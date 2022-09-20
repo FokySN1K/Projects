@@ -1,2 +1,3 @@
 ﻿  Number.cpp
+C:\Yaroslav\Projects\3_semester\2_seminar\Number\Number\Number.cpp(62,1): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
   Number.vcxproj -> C:\Yaroslav\Projects\3_semester\2_seminar\Number\x64\Debug\Number.exe
