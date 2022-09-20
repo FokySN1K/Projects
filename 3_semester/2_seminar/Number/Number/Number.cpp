@@ -1,29 +1,14 @@
-п»ї#include <iostream>
-#include <iomanip>
-#include <vector>
-#include <cmath>
-#include <algorithm>
-using namespace std;
+#include "Number.h"
 
-class Number
-{
-private:
-    static const int base = 100;
-    std::size_t size;
-    std::size_t capacity;
-    char* data;
-
-public:
-    Number() {
-        //Number(0);
-        capacity = size = 1;
-        data = new char[capacity];
-        data[0] = 0;
-    }
-    Number(int a)
-    {
-        // РќР°С…РѕРґРёРј СЂР°Р·РјРµСЂ РЅРµРѕР±С…РѕРґРёРјРѕР№ РїР°РјСЏС‚Рё РїРѕРґ СЌС‚Рѕ С‡РёСЃР»Рѕ
-        int temp = a;
+Number:: Number() {
+    //Number(0);
+    capacity = size = 1;
+    data = new char[capacity];
+    data[0] = 0;
+}
+Number:: Number(long long a){
+        // Находим размер необходимой памяти под это число
+        long long temp = a;
         capacity = 0;
         while (temp != 0)
         {
@@ -31,25 +16,25 @@ public:
             capacity += 1;
         }
 
-        // РћС‚РґРµР»СЊРЅРѕ РѕР±СЂР°Р±Р°С‚С‹РІР°РµРј СЃР»СѓС‡Р°Р№, РєРѕРіРґР° С‡РёСЃР»Рѕ СЂР°РІРЅРѕ 0
+        // Отдельно обрабатываем случай, когда число равно 0
         if (capacity == 0)
             capacity = 1;
 
-        // Р’С‹РґРµР»СЏРµРј РїР°РјСЏС‚СЊ Рё Р·Р°РїРёСЃС‹РІРµРј С‡РёСЃР»Рѕ a РІ РјР°СЃСЃРёРІ data
-        // РќР°РїСЂРёРјРµСЂ, С‡РёСЃР»Рѕ 12345678 РїСЂРµРґСЃС‚Р°РІРёС‚СЃСЏ РІ РІРёРґРµ РјР°СЃСЃРёРІР° [78, 56, 34, 12]
+        // Выделяем память и записывем число a в массив data
+        // Например, число 12345678 представится в виде массива [78, 56, 34, 12]
 
         data = new char[capacity];
 
-        for (int i = 0; i < capacity; ++i)
+        for (long long i = 0; i < capacity; ++i)
         {
             data[i] = a % base;
             a /= base;
         }
 
-        // Р’ РґР°РЅРЅРѕРј СЃР»СѓС‡Р°Рµ СЂР°Р·РјРµСЂ Р±СѓРґРµС‚ СЂР°РІРµРЅ РІРјРµСЃС‚РёРјРѕСЃС‚Рё
+        // В данном случае размер будет равен вместимости
         size = capacity;
-    }
-    Number(const Number& left) {
+}
+Number:: Number(const Number& left) {
         capacity = left.capacity;
         size = left.size;
         data = new char[capacity];
@@ -57,10 +42,10 @@ public:
             data[i] = left.data[i];
         }
 
-    }
-    Number(const char* str) {
+}
+Number:: Number(const char* str) {
         int len = strlen(str);
-        size = capacity = (len/2 + len%2);
+        size = capacity = (len / 2 + len % 2);
 
         data = new char[capacity];
         int len_1 = 0;
@@ -69,18 +54,18 @@ public:
                 data[len_1++] = str[i] - '0';
             }
             else {
-                data[len_1++] = (str[i-1] - '0')*10 + str[i] - '0';
+                data[len_1++] = (str[i - 1] - '0') * 10 + str[i] - '0';
             }
-            
-        }
 
-    }
-    ~Number()
+        }
+}
+Number:: ~Number()
     {
         delete[] data;
     }
 
-    Number& operator =(const Number& left) {
+
+Number& Number::operator =(const Number& left) {
         capacity = left.capacity;
         size = left.size;
         data = new char[capacity];
@@ -88,16 +73,16 @@ public:
             data[i] = left.data[i];
         }
         return *this;
-    }
-    Number operator +(const Number& left) const {
+}
+Number Number:: operator +(const Number& left) const {
         Number n;
         Number result;
-        // РјР°РєСЃРёРјР°Р»СЊРЅРѕ РјРѕР¶РµС‚ РёР·РјРµРЅРёС‚СЊСЃСЏ СЂР°Р·РјРµСЂ РЅР° 1 СЃРёРјРІРѕР», 
-        // С‡С‚Рѕ РІ РєРѕРЅС†Рµ РјС‹ Рё РїСЂРѕРІРµСЂРёРј
+        // максимально может измениться размер на 1 символ, 
+        // что в конце мы и проверим
         n.size = max(size, left.size) + 1;
         n.capacity = n.size;
         n.data = (char*)calloc(sizeof(char), n.size);
-        int ost = 0, cel = 0; // РѕСЃС‚Р°С‚РѕРє Рё С†РµР»Р°СЏ С‡Р°СЃС‚СЊ
+        int ost = 0, cel = 0; // остаток и целая часть
         for (int i = 0; i <= n.size - 2; i++) {
             if (i >= left.size) {
                 ost = (int)data[i];
@@ -114,8 +99,8 @@ public:
             ost %= 100;
             n.data[i] = ost;
             n.data[i + 1] = cel;
-        }
-        // РїСЂРѕРІРµСЂСЏРµРј Р»Рё Р±С‹Р» Р·Р°РґРµР№СЃС‚РѕРІР°РЅ РїРѕР»СЃРµРґРЅРёР№ СЂР°Р·СЂСЏРґ РёР»Рё РЅРµС‚(1-С‹Р№)
+}
+        // проверяем ли был задейстован полседний разряд или нет(1-ый)
         if (n.data[n.size - 1] == 0) {
             result.size = n.size - 1;
             result.capacity = result.size;
@@ -123,45 +108,45 @@ public:
             for (int i = 0; i < result.size; i++) {
                 result.data[i] = n.data[i];
             }
-            return result; // РїРѕС‡РµРјСѓ this?
+            return result; // почему this?
         }
         else {
             return n;
         }
-    }
-    void operator +=(const Number& left){
+}
+void Number:: operator +=(const Number& left) {
         *this = *this + left;
-    }
-    Number operator *(const Number& left) const {
+}
+Number Number:: operator *(const Number& left) const {
         Number result;
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < left.size; j++) {
-                int sum = (int)data[i] * (int)left.data[j];
-                if (sum == 0) {
+                int multiplier = (int)data[i] * (int)left.data[j];
+                if (multiplier == 0) {
                     continue;
                 }
                 int size_number = 0;
-                // С‚СѓРїРѕ, РЅРѕ РґРѕР»Р¶РЅРѕ СЃСЂР°Р±РѕС‚Р°С‚СЊ
-                if (sum / 10 == 0) {
+                // тупо, но должно сработать
+                if (multiplier / 10 == 0) {
                     size_number = 1;
                 }
-                else if(sum / 100 == 0) {
+                else if (multiplier / 100 == 0) {
                     size_number = 2;
                 }
-                else if (sum / 1000 == 0) {
+                else if (multiplier / 1000 == 0) {
                     size_number = 3;
                 }
                 else {
                     size_number = 4;
                 }
-                int stepen = 2*(i + j);
-                
+                int stepen = 2 * (i + j);
+
                 int len = stepen + size_number;
                 char* s = (char*)calloc(sizeof(char), len + 1);
                 int step = size_number - 1;
                 for (int k = 0; k < size_number; k++) {
-                    s[k] = sum/(int)pow(10,step) + '0';
-                    sum %= (int)pow(10, step--);
+                    s[k] = multiplier / (int)pow(10, step) + '0';
+                    multiplier %= (int)pow(10, step--);
                 }
                 for (int k = size_number; k < len; k++) {
                     s[k] = '0';
@@ -174,78 +159,98 @@ public:
             }
         }
         return result;
-    }
-    void operator *=(const Number& left) {
+}
+void Number:: operator *=(const Number& left) {
         *this = *this * left;
+}
+bool Number:: operator >(const Number& left) const {
+    if (size != left.size) {
+        if (size > left.size) {
+            return true;
+        }
+        return false;
+    }
+    else {
+        for (int i = size - 1; i >= 0; i--) {
+            if ((int)data[i] > (int)left.data[i]) {
+                return true;
+            }
+            else if ((int)data[i] < (int)left.data[i]) {
+                return false;
+            }
+            else {
+                continue;
+            }
+        }
+        return false;
     }
 
-    friend bool isEven(const Number& right);
-    friend ostream& operator<<(ostream& stream, const Number& right);
-};
-void fibonachi(int n);
-void factorial(int n);
+}
+bool Number:: operator <(const Number& left) const {
+    if (*this > left) {
+        return false;
+    }
+    return true;
 
-int main()
-{
-   /* char* s = (char*)calloc(sizeof(char), 3);
-    s[0] = 49;
-    cout << (int)s[0];
-   */
-    factorial(1000);
+}
+char Number:: operator [](int n) const {
+    return data[n];
 }
 
+int Number:: get_size() {
+    return size;
+}
+
+void Number::divide_by_2() {
+    // 124 -> 241 надо делить по одному числу, прибавляя 5, если число нечетное  
+    // 256 -> 562
+    if ((int)data[0] % 2 != 0) {
+        cout << "fall" << endl;
+        assert(0);
+    }
+    int first, second; // второй и первый разряды 
+    for (int i = 0; i < size; i++) {
+        first = (int)data[i] % 10;
+        second = (int)data[i] / 10;
+        // делаю всё поразрядно, а не быстро
+        if (first % 2 == 0) {
+            data[i] = ((int)data[i] / 10) * 10 + ((int)data[i] % 10) / 2;
+        }
+        else {
+            data[i] = ((int)data[i] / 10) * 10 + ((int)data[i] % 10) / 2;
+            data[i - 1] = (int)data[i - 1] + 50;
+        }
+        if (second % 2 == 0) {
+            data[i] = ((int)data[i] / 10) * 10 / 2 + ((int)data[i] % 10);
+        }
+        else {
+            data[i] = ((int)data[i] / 10) / 2 * 10 + ((int)data[i] % 10 + 5);
+        }
+    }
+    if ((int)data[size - 1] == 0) {
+        Number result;
+        free(result.data);
+        result.capacity = result.size = size - 1;
+        result.data = new char[result.size];
+        for (int i = 0; i < result.size; i++) {
+            result.data[i] = data[i];
+        }
+        *this = result;
+    }
+}
+bool isEven(const Number& right) {
+    return (((int)right.data[0] % 2) == 0);
+}
 ostream& operator<<(ostream& stream, const Number& right)
 {
-    // РџРµС‡Р°С‚Р°РµРј СЃР°РјС‹Р№ Р±РѕР»СЊС€РѕР№ СЂР°Р·СЂСЏРґ
+    // Печатаем самый большой разряд
     stream << (int)right.data[right.size - 1];
 
-    // РџРµС‡Р°С‚Р°РµРј РѕСЃС‚Р°Р»СЊРЅС‹Рµ СЂР°Р·СЂСЏРґС‹ СЃ Р·Р°РїРѕР»РЅРµРЅРёРµРј РЅСѓР»СЏРјРё РґРѕ 2-С… С†РёС„СЂ
-    // setfill Рё setw СЌС‚Рѕ С‚Рѕ Р¶Рµ СЃР°РјРѕРµ, С‡С‚Рѕ Рё РІ СЏР·С‹РєРµ C СЃРїРµС†РёС„РёРєР°С‚РѕСЂ %02d
+    // Печатаем остальные разряды с заполнением нулями до 2-х цифр
+    // setfill и setw это то же самое, что и в языке C спецификатор %02d
     for (std::size_t i = 0; i < right.size - 1; ++i)
         stream << setfill('0') << setw(2) << (int)right.data[right.size - 2 - i];
 
     return stream;
 }
 
-void fibonachi(int n) {
-    if (n == 0) {
-        cout << 0;
-    }
-    else if (n == 1 || n == 2) {
-        cout << 1;
-    }
-    else {
-        Number sum_1 = "1", sum_2 = "1";
-        for (int i = 3; i <= n; i++) {
-            if (i % 2) {
-                sum_1 += sum_2;
-            }
-            else {
-                sum_2 += sum_1;
-            }
-        }
-        if (n % 2) {
-            cout << sum_1;
-        }
-        else {
-            cout << sum_2;
-        }
-
-    }
-}
-bool isEven(const Number& right) {
-    return (((int)right.data[0] % 2) == 0);
-}
-void factorial(int n) {
-    if (n == 0) {
-        cout << 1;
-    }
-    else {
-        Number result = 1;
-        for (int i = 1; i <= n; i++) {
-            Number a = {i};
-            result *= a;
-        }
-        cout << result;
-    }
-}
