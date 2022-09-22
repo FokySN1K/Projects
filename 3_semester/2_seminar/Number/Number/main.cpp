@@ -10,7 +10,7 @@ using namespace std;
 void fibonachi(int n);
 void factorial(int n);
 void num_grad(long long n);
-void num_grad(char* s);
+void num_grad(const char* s);
 
 int main()
 {
@@ -21,7 +21,7 @@ int main()
     //Number a = "11114", b = "256";
     //factorial(1000);
     char s[] = "90560792656972947582439785608972465789628974587264056284658721771";
-    num_grad(s);
+    num_grad("1431234");
 }
 
 
@@ -84,7 +84,7 @@ void num_grad(long long n) {
     }
     cout << "n = " << n << " steps = " << steps << " max = " << max << endl;
 }
-void num_grad(char* s) {
+void num_grad(const char* s) {
     Number x = s;
     Number unit = 1;
     Number third = 3;
