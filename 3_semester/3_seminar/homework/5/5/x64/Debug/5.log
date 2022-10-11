@@ -1,0 +1,7 @@
+﻿  5.cpp
+C:\Yaroslav\Projects\3_semester\3_seminar\homework\5\5\5.cpp(11,22): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Yaroslav\Projects\3_semester\3_seminar\homework\5\5\5.cpp(12,26): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Yaroslav\Projects\3_semester\3_seminar\homework\5\5\5.cpp(14,24): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Yaroslav\Projects\3_semester\3_seminar\homework\5\5\5.cpp(21,7): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Yaroslav\Projects\3_semester\3_seminar\homework\5\5\5.cpp(32,11): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+  5.vcxproj -> C:\Yaroslav\Projects\3_semester\3_seminar\homework\5\x64\Debug\5.exe
