@@ -7,12 +7,11 @@ string repeat1(string_view s) {
 	string k = string(s);
 	return k + k;
 }
-string repeat2(string& s) {
-	return s + s;
+void repeat2(string& s) {
+	s += s;
 }
-string repeat3(string* ps) {
-	string s = *ps + *ps;
-	return s;
+void repeat3(string* ps) {
+	*ps += *ps ;
 }
 string* repeat4(string_view s) {
 	string* k = new string{repeat1(s)};
@@ -27,5 +26,5 @@ int main() {
 	cout << *s;*/
 
 	string a = "1234";
-	cout << repeat1(a);
+	repeat3(&a);
 }
