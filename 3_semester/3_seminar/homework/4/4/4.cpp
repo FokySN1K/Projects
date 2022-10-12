@@ -7,8 +7,6 @@ using namespace std;
 void truncateToDot(string& s) {
 	int n = s.find('.');
 	s =  s.substr(0, n);
-	s.reserve(s.size());
-
 }
 
 int main() {
