@@ -1,0 +1,12 @@
+﻿  8.cpp
+C:\Yaroslav\Projects\3_semester\3_seminar\homework\8\8\miptstring_view.hpp(27,26): error C2653: mipt: не является именем класса или пространства имен
+C:\Yaroslav\Projects\3_semester\3_seminar\homework\8\8\miptstring_view.hpp(27,19): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Yaroslav\Projects\3_semester\3_seminar\homework\8\8\miptstring_view.hpp(27,38): error C2143: синтаксическая ошибка: отсутствие "," перед "&"
+C:\Yaroslav\Projects\3_semester\3_seminar\homework\8\8\miptstring_view.hpp(28,21): error C2065: s: необъявленный идентификатор
+C:\Yaroslav\Projects\3_semester\3_seminar\homework\8\8\miptstring_view.hpp(29,22): error C2065: s: необъявленный идентификатор
+C:\Yaroslav\Projects\3_semester\3_seminar\homework\8\8\miptstring.hpp(30,1): error C2248: mipt1::StringView::size: невозможно обратиться к private член, объявленному в классе "mipt1::StringView"
+C:\Yaroslav\Projects\3_semester\3_seminar\homework\8\8\miptstring_view.hpp(56): message : см. объявление "mipt1::StringView::size"
+C:\Yaroslav\Projects\3_semester\3_seminar\homework\8\8\miptstring_view.hpp(10): message : см. объявление "mipt1::StringView"
+C:\Yaroslav\Projects\3_semester\3_seminar\homework\8\8\miptstring.hpp(33,1): error C2248: mipt1::StringView::operator []: невозможно обратиться к private член, объявленному в классе "mipt1::StringView"
+C:\Yaroslav\Projects\3_semester\3_seminar\homework\8\8\miptstring_view.hpp(44): message : см. объявление "mipt1::StringView::operator []"
+C:\Yaroslav\Projects\3_semester\3_seminar\homework\8\8\miptstring_view.hpp(10): message : см. объявление "mipt1::StringView"

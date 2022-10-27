@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{d7e0256e-eef5-48d3-afd6-0e18a822738b}</ProjectGuid>
+    <ProjectGuid>{4b731de6-2414-4bb0-ac82-31c9919da4a1}</ProjectGuid>
     <RootNamespace>My7</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -140,6 +140,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="7.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="miptstring.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
